@@ -1,5 +1,6 @@
 import flet as ft
 import sqlite3
+import os
 from datetime import datetime
 
 def main(page: ft.Page):
@@ -321,4 +322,5 @@ def main(page: ft.Page):
         )
     )
 
-ft.app(target=main, view="web_browser", port=8550)
+port = int(os.environ.get("PORT", 8550))
+ft.app(target=main, view=ft.WEB_BROWSER, port=port, host="0.0.0.0")
